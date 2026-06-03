@@ -146,7 +146,17 @@ jobs:
           adb install android-debug-build/android-debug.apk
           adb reverse tcp:8081 tcp:8081
           cd example
-          yarn run e2e:native --platform android
+          mkdir -p e2e/maestro-focus
+          cp \
+            e2e/maestro/auth-flow.yml \
+            e2e/maestro/bottom-tabs-dynamic.yml \
+            e2e/maestro/bottom-tabs-full-history.yml \
+            e2e/maestro/bottom-tabs-preload-flow.yml \
+            e2e/maestro/bottom-tabs.yml \
+            e2e/maestro/components-link.yml \
+            e2e/maestro/drawer-master-detail.yml \
+            e2e/maestro-focus/
+          AGENT_DEVICE_E2E_PATH=e2e/maestro-focus AGENT_DEVICE_E2E_DEBUG=1 yarn run e2e:native --platform android
 
       - name: Store agent-device timing output
         if: always()
