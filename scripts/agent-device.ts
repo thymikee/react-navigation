@@ -31,7 +31,6 @@ if (!appId) {
 const scheme = `${config.expo?.scheme}://`;
 const ci = process.env.CI === 'true' || process.env.CI === '1';
 const ciTimeoutMs = process.env.AGENT_DEVICE_E2E_TIMEOUT_MS ?? '120000';
-const suitePath = process.env.AGENT_DEVICE_E2E_PATH ?? 'e2e/maestro';
 
 await fs.mkdir(new URL('agent-device-artifacts/', cwd), { recursive: true });
 await fs.mkdir(new URL('agent-device-state/', cwd), { recursive: true });
@@ -64,11 +63,7 @@ if (ci) {
   );
 }
 
-if (process.env.AGENT_DEVICE_E2E_DEBUG === '1') {
-  args.push('--debug');
-}
-
-args.push(suitePath);
+args.push('e2e/maestro');
 
 process.stdout.write(`Running agent-device with args: ${args.join(' ')}\n`);
 
