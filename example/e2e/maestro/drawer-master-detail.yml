@@ -12,7 +12,7 @@ name: Drawer - Master Detail
     text: 'Feed'
 - runFlow:
     when:
-      platform: iOS
+      visible: 'Go back'
     commands:
       - tapOn:
           text: 'Go back'
@@ -22,7 +22,7 @@ name: Drawer - Master Detail
     text: 'Albums'
 - runFlow:
     when:
-      platform: iOS
+      visible: 'Go back'
     commands:
       - tapOn:
           text: 'Go back'
