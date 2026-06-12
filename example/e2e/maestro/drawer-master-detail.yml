@@ -10,14 +10,22 @@ name: Drawer - Master Detail
     text: 'Feed'
 - assertVisible:
     text: 'Feed'
-- tapOn:
-    text: 'Go back'
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          text: 'Go back'
 - tapOn:
     text: 'Albums'
 - assertVisible:
     text: 'Albums'
-- tapOn:
-    text: 'Go back'
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          text: 'Go back'
 - tapOn:
     text: 'Article'
 - assertVisible:
