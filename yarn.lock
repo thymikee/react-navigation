@@ -5725,14 +5725,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"agent-device@file:.github/agent-device-0.17.4-scoped-tap-swipe.tgz::locator=root-workspace-0b6124%40workspace%3A.":
+"agent-device@file:.github/agent-device-0.17.4-android-swipe-lane.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.17.4
-  resolution: "agent-device@file:.github/agent-device-0.17.4-scoped-tap-swipe.tgz#.github/agent-device-0.17.4-scoped-tap-swipe.tgz::hash=524a27&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "agent-device@file:.github/agent-device-0.17.4-android-swipe-lane.tgz#.github/agent-device-0.17.4-android-swipe-lane.tgz::hash=a80cc9&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     yaml: "npm:^2.9.0"
   bin:
     agent-device: bin/agent-device.mjs
-  checksum: 10c0/938b0935761d0f793c7bcbb7ed4c8263c6bd18fc172ef1b35a9660898f2db872c5d19a680a63b648d5d3fca2630b10dc9ab9f892f9f2e60d4da8b05759668b13
+  checksum: 10c0/1642180858215d7cff747ffcc33917f7f8a81d41ae1f5647942796c4a502492fab71d22d84936aadab5167fb35f2e2824838b28eca104eedfb20287d3311ceac
   languageName: node
   linkType: hard
 
@@ -13479,7 +13479,7 @@ __metadata:
     "@react-native/jest-preset": "npm:^0.85.3"
     "@types/babel__core": "npm:^7.20.5"
     "@types/semver": "npm:^7.7.1"
-    agent-device: "file:.github/agent-device-0.17.4-scoped-tap-swipe.tgz"
+    agent-device: "file:.github/agent-device-0.17.4-android-swipe-lane.tgz"
     commitlint: "npm:^21.0.2"
     eslint: "npm:^9.39.4"
     eslint-config-satya164: "npm:^5.1.8"
