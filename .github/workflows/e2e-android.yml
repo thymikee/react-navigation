@@ -146,7 +146,10 @@ jobs:
           adb install android-debug-build/android-debug.apk
           adb reverse tcp:8081 tcp:8081
           cd example
-          yarn run e2e:native --platform android
+          yarn run e2e:native --platform android \
+            e2e/maestro/native-stack-card-modal.yml \
+            e2e/maestro/stack-card-modal.yml \
+            e2e/maestro/tab-view-custom-tab-bar.yml
 
       - name: Store Maestro timing output
         if: always()

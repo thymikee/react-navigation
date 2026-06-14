@@ -14,6 +14,7 @@ const agentDeviceBin = fileURLToPath(
 const platformIndex = process.argv.indexOf('--platform');
 const platform =
   platformIndex === -1 ? undefined : process.argv[platformIndex + 1];
+const testTargets = readTestTargets(process.argv.slice(2));
 
 const appId =
   platform === 'ios'
@@ -75,7 +76,7 @@ if (ci) {
   );
 }
 
-args.push('e2e/maestro');
+args.push(...(testTargets.length > 0 ? testTargets : ['e2e/maestro']));
 
 process.stdout.write(`Running agent-device with args: ${args.join(' ')}\n`);
 
@@ -123,4 +124,27 @@ function getConnectedDeviceIds(): string[] {
   }
 
   return ids;
+}
+
+function readTestTargets(argv: string[]): string[] {
+  const targets: string[] = [];
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+
+    if (arg === '--platform') {
+      i += 1;
+      continue;
+    }
+
+    if (arg?.startsWith('-')) {
+      continue;
+    }
+
+    if (arg) {
+      targets.push(arg);
+    }
+  }
+
+  return targets;
 }
