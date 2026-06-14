@@ -5727,12 +5727,12 @@ __metadata:
 
 "agent-device@file:.github/agent-device-0.17.4-android-tap-retry.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.17.4
-  resolution: "agent-device@file:.github/agent-device-0.17.4-android-tap-retry.tgz#.github/agent-device-0.17.4-android-tap-retry.tgz::hash=86a240&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "agent-device@file:.github/agent-device-0.17.4-android-tap-retry.tgz#.github/agent-device-0.17.4-android-tap-retry.tgz::hash=6080c8&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     yaml: "npm:^2.9.0"
   bin:
     agent-device: bin/agent-device.mjs
-  checksum: 10c0/6271e7579c7614f52f496db1b3d7f6b0d926f7408e330860401493c8b6e068c6f33c5a4b773dadc92a6b5467963868527131f1322f37916ebcf0a31efe023a2a
+  checksum: 10c0/ade58b2f420d870f1eda2c66e87777c6f37ef31dbb3a7687d773ae45d4087cd03d73235b16526e6d90d06e4319880d57ca7d5d71c9619b5b14e895bb5b50620d
   languageName: node
   linkType: hard
 
