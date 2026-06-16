@@ -81,14 +81,15 @@ type ParamsForScreen<T> = [T] extends [{ config: any }]
 type ParamsForScreenEntry<T> = T extends T ? ParamsForScreen<T> : never;
 
 // Only infer params from linking if it's a pattern (i.e., contains ':')
-// or if parse is present for query params.
+// or if parse is present, which can also define query params.
 // This avoids inferring non-literals like 'string' without parse.
-type ShouldInferFromLinking<Linking> = Linking extends
-  | ValidPathPattern
-  | { path: ValidPathPattern }
-  | { parse: Record<string, unknown> }
+type ShouldInferFromLinking<Linking> = Linking extends {
+  parse: Record<string, unknown>;
+}
   ? true
-  : false;
+  : Linking extends ValidPathPattern | { path: ValidPathPattern }
+    ? true
+    : false;
 
 /**
  * Params type derived from both linking and screen.
@@ -140,25 +141,28 @@ type ParamListForGroups<
   ? ParamListForScreens<UnionToIntersection<Screens>>
   : {};
 
+type RouteTypeBase = {
+  key: string;
+  name: string;
+  path?: string | undefined;
+  history?: { type: 'params'; params: object }[] | undefined;
+};
+
 type RouteType<Params, P = AnyToUnknown<Params>> = Readonly<
-  {
-    key: string;
-    name: string;
-    path?: string | undefined;
-    history?: { type: 'params'; params: object }[] | undefined;
-  } & (undefined extends Params
-    ? {
-        /**
-         * Params for this route
-         */
-        params?: P;
-      }
-    : {
-        /**
-         * Params for this route
-         */
-        params: P;
-      })
+  RouteTypeBase &
+    (undefined extends Params
+      ? {
+          /**
+           * Params for this route
+           */
+          params?: P;
+        }
+      : {
+          /**
+           * Params for this route
+           */
+          params: P;
+        })
 >;
 
 type StaticScreenConfigLinkingAlias = {

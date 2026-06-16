@@ -687,13 +687,16 @@ export function useNavigationBuilder<
         }
       } else {
         // If the route was updated with new screen name and/or params, we should navigate there
-        action = CommonActions.navigate({
-          name: route.params.screen,
-          params: route.params.params,
-          path: route.params.path,
-          merge: route.params.merge,
-          pop: route.params.pop,
-        });
+        action = {
+          type: 'NAVIGATE',
+          payload: {
+            name: route.params.screen,
+            params: route.params.params,
+            path: route.params.path,
+            merge: route.params.merge,
+            pop: route.params.pop,
+          },
+        } as const;
       }
     }
 
@@ -874,14 +877,7 @@ export function useNavigationBuilder<
 
       listeners.forEach((listener) => listener?.(e));
     }
-
-    onEmitEvent({
-      type: e.type,
-      data: e.data,
-      target: e.target,
-      defaultPrevented: e.defaultPrevented,
-    });
-  });
+  }, onEmitEvent);
 
   useFocusEvents({ state, emitter });
 
